@@ -1,0 +1,10 @@
+(DEFINE (equal2 lis1 lis2)
+   (COND
+    ((NOT (LIST? lis1))(EQ? lis1 lis2))
+    ((NOT (LIST? lis2)) #f)
+    ((NULL? lis1) (NULL? lis2))
+    ((NULL? lis2) #f)
+    ((equal2 (CAR lis1) (CAR lis2))
+      (equal2 (CDR lis1) (CDR lis2)))
+(ELSE #f)))
+(equal2 '(a c) '(a c))
